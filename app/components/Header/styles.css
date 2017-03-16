@@ -1,0 +1,17 @@
+.header {
+  background: #046899;
+  color: #fff;
+}
+
+.container {
+  display: flex;
+}
+
+.logo {
+  padding: 9px 0;
+  flex: 1 1 auto;
+}
+
+.controls {
+  flex: 0 0 auto;
+}

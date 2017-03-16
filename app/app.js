@@ -22,6 +22,9 @@ import { useScroll } from 'react-router-scroll';
 import LanguageProvider from 'containers/LanguageProvider';
 import configureStore from './store';
 
+import injectTapEventPlugin from 'react-tap-event-plugin';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+
 // Import i18n messages
 import { translationMessages } from './i18n';
 
@@ -51,20 +54,23 @@ const rootRoute = {
   childRoutes: createRoutes(store),
 };
 
+injectTapEventPlugin();
 
 const render = (translatedMessages) => {
   ReactDOM.render(
     <Provider store={store}>
       <LanguageProvider messages={translatedMessages}>
-        <Router
-          history={history}
-          routes={rootRoute}
-          render={
-            // Scroll to top when going to a new page, imitating default browser
-            // behaviour
-            applyRouterMiddleware(useScroll())
-          }
-        />
+        <MuiThemeProvider>
+          <Router
+            history={history}
+            routes={rootRoute}
+            render={
+              // Scroll to top when going to a new page, imitating default browser
+              // behaviour
+              applyRouterMiddleware(useScroll())
+            }
+          />
+        </MuiThemeProvider>
       </LanguageProvider>
     </Provider>,
     document.getElementById('app')

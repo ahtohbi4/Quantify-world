@@ -1,0 +1,5 @@
+export const INIT_NOTIFICATION_LISTENER = 'app/containers/App/INIT_NOTIFICATION_LISTENER';
+export const PUSH_NOTIFICATION = 'app/containers/App/PUSH_NOTIFICATION';
+
+export const NOTIFICATION_CONTROL_OPEN = 'app/containers/App/NOTIFICATION_CONTROL_OPEN';
+export const NOTIFICATION_CONTROL_CLOSE = 'app/containers/App/NOTIFICATION_CONTROL_CLOSE';

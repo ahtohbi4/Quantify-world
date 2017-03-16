@@ -1,3 +1,18 @@
+import { createSelector, createStructuredSelector } from 'reselect';
+
+export const selectGlobalDomain = () => (state) => state.get('global');
+
+export const selectNotifications = () => createSelector(
+  selectGlobalDomain(),
+  (subState) => subState.get('notifications')
+);
+
+export const selectAppGlobalState = () => createStructuredSelector({
+  notifications: selectNotifications(),
+});
+
+export default selectAppGlobalState;
+
 // selectLocationState expects a plain JS object for the routing state
 const selectLocationState = () => {
   let prevRoutingState;
